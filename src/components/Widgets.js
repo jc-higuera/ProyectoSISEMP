@@ -1,14 +1,14 @@
 
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleDown, faAngleUp, faChartArea, faChartBar, faChartLine, faFlagUsa, faFolderOpen, faGlobeEurope, faPaperclip, faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import { faStore, faMask, faUserAlt, faChessKing, faAngleDown, faAngleUp, faChartArea, faChartBar, faChartLine, faFlagUsa, faFolderOpen, faGlobeEurope, faPaperclip, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { faAngular, faBootstrap, faReact, faVuejs } from "@fortawesome/free-brands-svg-icons";
 import { Col, Row, Card, Image, Button, ListGroup, ProgressBar } from '@themesberg/react-bootstrap';
 import { CircleChart, BarChart, SalesValueChart, SalesValueChartphone } from "./Charts";
 
 import Profile1 from "../assets/img/team/profile-picture-1.jpg";
 import ProfileCover from "../assets/img/profile-cover.jpg";
-
+import calculate_leads_category from "../scripts/calculate_category.js"
 import teamMembers from "../data/teamMembers";
 
 
@@ -365,29 +365,49 @@ export const SalesValueWidgetPhone = (props) => {
   );
 };
 
-export const AcquisitionWidget = () => {
+export const AcquisitionWidget = (props) => {
+  const { leads } = props;
+  console.log(leads)
   return (
     <Card border="light" className="shadow-sm">
       <Card.Body>
-        <h5>Acquisition</h5>
-        <p>Tells you where your visitors originated from, such as search engines, social networks or website referrals.</p>
+        <h5>Categories</h5>
+        <p>Leads by category on {}</p>
         <div className="d-block">
           <div className="d-flex align-items-center pt-3 me-5">
             <div className="icon icon-shape icon-sm icon-shape-danger rounded me-3">
-              <FontAwesomeIcon icon={faChartBar} />
+              <FontAwesomeIcon icon={faChessKing} />
             </div>
             <div className="d-block">
-              <label className="mb-0">Bounce Rate</label>
-              <h4 className="mb-0">33.50%</h4>
+              <label className="mb-0">Champion</label>
+              <h4 className="mb-0">{calculate_leads_category(leads, "champions").length}</h4>
             </div>
           </div>
           <div className="d-flex align-items-center pt-3">
             <div className="icon icon-shape icon-sm icon-shape-quaternary rounded me-3">
-              <FontAwesomeIcon icon={faChartArea} />
+              <FontAwesomeIcon icon={faUserAlt} />
             </div>
             <div className="d-block">
-              <label className="mb-0">Sessions</label>
-              <h4 className="mb-0">9,567</h4>
+              <label className="mb-0">Climate Activists</label>
+              <h4 className="mb-0">{calculate_leads_category(leads, "Climate activists").length}</h4>
+            </div>
+          </div>
+          <div className="d-flex align-items-center pt-3">
+            <div className="icon icon-shape icon-sm icon-shape-quaternary rounded me-3">
+              <FontAwesomeIcon icon={faMask} />
+            </div>
+            <div className="d-block">
+              <label className="mb-0">Climate Hacker</label>
+              <h4 className="mb-0">{calculate_leads_category(leads, "Climate hacker").length}</h4>
+            </div>
+          </div>
+          <div className="d-flex align-items-center pt-3">
+            <div className="icon icon-shape icon-sm icon-shape-quaternary rounded me-3">
+              <FontAwesomeIcon icon={faStore} />
+            </div>
+            <div className="d-block">
+              <label className="mb-0">Climate Entrepreneur</label>
+              <h4 className="mb-0">{calculate_leads_category(leads, "Climate entrepreneur").length}</h4>
             </div>
           </div>
         </div>
