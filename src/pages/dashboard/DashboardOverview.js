@@ -28,6 +28,27 @@ export default () => {
     setData(result.data);
   }
   console.log(data);
+  function getOrigin(originData){
+    let counters = {};
+    for (let index = 0; index < originData.length; index++) {
+      const element = originData[index];
+      if(element.hackname in counters){
+        counters[element.hackname] += 1;
+      }else{
+        counters[element.hackname] = 1;
+      }
+      
+    }
+    let originList = [];
+    let i = 0;
+    for(let key in counters){
+      let origin = {id: i, label: key, value: counters[key], color:"primary"};
+      originList.push(origin);
+      i++;
+    }
+    return originList;
+  }
+  console.log(getOrigin(data))
   return (
     <>
       <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
@@ -61,8 +82,8 @@ export default () => {
 
         <Col xs={12} sm={6} xl={6} className="mb-4">
           <CircleChartWidget
-            title="Traffic Share"
-            data={trafficShares} />
+            title="Hack Share"
+            data={getOrigin(data)} />
         </Col>
       </Row>
 
