@@ -13,7 +13,7 @@ import { trafficShares, totalOrders } from "../../data/charts";
 const URL = "https://gist.githubusercontent.com/jecanizarez/d02d54e96571c6e2f24aa49ce399cfdf/raw/16ad8b5e8ef94feb969f7c41ff81a8c9507fb7c3/Data_42Hacks.json"
 
 export default () => {
-  const [data, setData] = useState({ hits: [] });
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     getData();
@@ -90,7 +90,8 @@ export default () => {
                 </Col>
 
                 <Col xs={12} className="px-0">
-                  <AcquisitionWidget />
+                  <AcquisitionWidget
+                  leads={data} />
                 </Col>
               </Row>
             </Col>
