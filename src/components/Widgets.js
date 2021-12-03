@@ -100,6 +100,7 @@ export const CounterWidget = (props) => {
 
 export const CircleChartWidget = (props) => {
   const { title, data = [] } = props;
+  console.log(props);
   const series = data.map(d => d.value);
 
   return (

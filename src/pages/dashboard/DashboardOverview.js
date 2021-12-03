@@ -1,15 +1,37 @@
-
 import React, { useState, useEffect } from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCashRegister, faChartLine, faCloudUploadAlt, faPlus, faRocket, faTasks, faUserShield } from '@fortawesome/free-solid-svg-icons';
-import { Col, Row, Button, Dropdown, ButtonGroup } from '@themesberg/react-bootstrap';
-import axios from 'axios';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faCashRegister,
+  faChartLine,
+  faCloudUploadAlt,
+  faPlus,
+  faRocket,
+  faTasks,
+  faUserShield,
+} from "@fortawesome/free-solid-svg-icons";
+import {
+  Col,
+  Row,
+  Button,
+  Dropdown,
+  ButtonGroup,
+} from "@themesberg/react-bootstrap";
+import axios from "axios";
 
-import { CounterWidget, CircleChartWidget, BarChartWidget, TeamMembersWidget, ProgressTrackWidget, RankingWidget, SalesValueWidget, SalesValueWidgetPhone, AcquisitionWidget } from "../../components/Widgets";
+import {
+  CounterWidget,
+  CircleChartWidget,
+  BarChartWidget,
+  TeamMembersWidget,
+  ProgressTrackWidget,
+  RankingWidget,
+  SalesValueWidget,
+  SalesValueWidgetPhone,
+  AcquisitionWidget,
+} from "../../components/Widgets";
 import { PageVisitsTable } from "../../components/Tables";
 import { trafficShares, totalOrders } from "../../data/charts";
 import calculate_leads_category from "../../scripts/calculate_category";
-
 
 const URL = "https://gist.githubusercontent.com/jecanizarez/d02d54e96571c6e2f24aa49ce399cfdf/raw/b3a23a1643a22798570be3f8501a76c85115b8d5/Data_42Hacks.json"
 
@@ -23,9 +45,7 @@ export default () => {
   }, []);
 
   const getData = async () => {
-    const result = await axios(
-      URL,
-    );
+    const result = await axios(URL);
 
     setTotalData(result.data);
     setData(result.data)
@@ -65,6 +85,7 @@ export default () => {
     }
     return originList;
   }
+
   return (
     <>
       <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
@@ -94,6 +115,7 @@ export default () => {
             title="New users this week"
             value={data}
           />
+
         </Col>
         <Col xs={12} className="mb-4 d-sm-none">
           <SalesValueWidgetPhone
@@ -103,9 +125,7 @@ export default () => {
           />
         </Col>
         <Col xs={12} sm={6} xl={6} className="mb-4">
-          <CircleChartWidget
-            title="Traffic Share"
-            data={trafficShares} />
+          <CircleChartWidget title="Traffic Share" data={trafficShares} />
         </Col>
 
         <Col xs={12} sm={6} xl={6} className="mb-4">
@@ -121,29 +141,22 @@ export default () => {
             <Col xs={12} xl={8} className="mb-4">
               <Row>
                 <Col xs={12} className="mb-4">
-                  <PageVisitsTable leads={data}/>
+                  <PageVisitsTable leads={data} />
                 </Col>
-                <Col xs={12} lg={6} className="mb-4">
-                </Col>
+                <Col xs={12} lg={6} className="mb-4"></Col>
 
-                <Col xs={12} lg={6} className="mb-4">
-                </Col>
+                <Col xs={12} lg={6} className="mb-4"></Col>
               </Row>
             </Col>
 
             <Col xs={12} xl={4}>
               <Row>
-                <Col xs={12} className="mb-4">
+                <Col xs={12} className="mb-4"></Col>
 
-                </Col>
-
-                <Col xs={12} className="px-0 mb-4">
-
-                </Col>
+                <Col xs={12} className="px-0 mb-4"></Col>
 
                 <Col xs={12} className="px-0">
-                  <AcquisitionWidget
-                  leads={data} />
+                  <AcquisitionWidget leads={data} />
                 </Col>
               </Row>
             </Col>
