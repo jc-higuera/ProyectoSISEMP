@@ -1,16 +1,37 @@
 
-import React from "react";
+import React, { useState } from "react";
 import Chartist from "react-chartist";
 import ChartistTooltip from 'chartist-plugin-tooltips-updated';
 
 
 
 
-export const SalesValueChart = () => {
+export const SalesValueChart = (props) => {
+
+  var GAP = [];
+  var Ramp = [];
+  var better = [];
+  var prepare = [];
+  var ideators = [];
+
+  // eslint-disable-next-line no-unused-expressions
+  props.list?.forEach?.(element => {
+    if (element.hackname === 'Fill the GAP') {
+      GAP.push(element);
+    } else if (element.hackname === 'Ramp-up') {
+      Ramp.push(element);
+    } else if (element.hackname === 'Make it better!') {
+      better.push(element);
+    } else if (element.hackname === 'Prepare2Shift') {
+      prepare.push(element);
+    } else {
+      ideators.push(element);
+    }
+  });
 
   const data = {
-    labels: ['Champions', 'Climate Hackers', 'Climate Activists', 'Climatentrepreneur'],
-    series: [[500, 200, 350, 200]]
+    labels: ['Fill the GAP', 'Prepare2Shift', 'Make it better!', 'Ramp-up', 'Ideators'],
+    series: [[GAP.length, prepare.length, better.length, Ramp.length, ideators.length]]
   };
 
   const options = {
@@ -36,7 +57,7 @@ export const SalesValueChart = () => {
   ]
 
   return (
-    <Chartist data={data} options={{...options, plugins}} type="Bar" className="ct-bar" />
+    <Chartist data={data} options={{ ...options, plugins }} type="Bar" className="ct-bar" />
   );
 };
 
@@ -67,7 +88,7 @@ export const SalesValueChartphone = () => {
   ]
 
   return (
-    <Chartist data={data} options={{...options, plugins}} type="Line" className="ct-series-g ct-major-tenth" />
+    <Chartist data={data} options={{ ...options, plugins }} type="Line" className="ct-series-g ct-major-tenth" />
   );
 };
 
@@ -91,7 +112,7 @@ export const CircleChart = (props) => {
   ]
 
   return (
-    <Chartist data={{ series }} options={{...options, plugins}} type="Pie" className="ct-golden-section" />
+    <Chartist data={{ series }} options={{ ...options, plugins }} type="Pie" className="ct-golden-section" />
   );
 };
 
@@ -117,6 +138,6 @@ export const BarChart = (props) => {
   ]
 
   return (
-    <Chartist data={data} options={{...options, plugins}} type="Bar" className={chartClassName} />
+    <Chartist data={data} options={{ ...options, plugins }} type="Bar" className={chartClassName} />
   );
 };

@@ -317,7 +317,7 @@ export const SalesValueWidget = (props) => {
           </h5>
           <h3>{value.length}</h3>
           <small className="fw-bold mt-2">
-            <span className="me-2">Semana: 29/11/2021 - 05/12/2021</span>
+            {/* <span className="me-2">Semana: 29/11/2021 - 05/12/2021</span> */}
           </small>
         </div>
         <div className="d-flex ms-auto">
@@ -328,7 +328,7 @@ export const SalesValueWidget = (props) => {
         </div>
       </Card.Header>
       <Card.Body className="p-2">
-        <SalesValueChart />
+        <SalesValueChart list={value}/>
       </Card.Body>
     </Card>
   );

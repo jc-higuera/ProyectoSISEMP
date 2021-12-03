@@ -87,6 +87,7 @@ export const PageVisitsTable = ({ leads }) => {
           <p>Country: {lead?.country}</p>
           <p>City: {lead?.city}</p>
           <p>Region: {lead?.region}</p>
+          <p>Origin: {lead?.leadOrigin}</p>
           <p>Email: {lead?.email}</p>
           <p>Hackname: {lead?.hackname}</p>
           <p> Phone: {lead?.phone}</p>

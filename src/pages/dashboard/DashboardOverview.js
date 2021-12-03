@@ -86,6 +86,47 @@ export default () => {
     return originList;
   }
 
+  function country(data) {
+    let jsonCountry1 = [];
+    let i = 1;
+    data.forEach((x) => {
+      let bool = false;
+      jsonCountry1.forEach((y) => {
+        if (y.label == x.country) {
+          y.value++;
+          bool = true;
+        }
+      });
+      if (!bool) {
+        jsonCountry1.push({ id: i, label: x.country, value: 1 });
+        i++;
+      }
+    });
+    jsonCountry1 = jsonCountry1.sort((x, y) => {
+      var x1 = x["value"];
+      var y1 = y["value"];
+      return x1 < y1 ? 1 : x1 > y1 ? -1 : 0;
+    });
+
+    let t = jsonCountry1.slice(0, 7);
+
+    let elem = 0;
+
+    let j = jsonCountry1
+      .slice(7, jsonCountry1.length)
+      .forEach((x) => (elem += x.value));
+
+    t.push({ label: "Others", value: elem });
+
+    let h = 1;
+
+    t.forEach((x) => {
+      x.id = i;
+      i++;
+    });
+    return t;
+  }
+
   return (
     <>
       <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
@@ -112,11 +153,12 @@ export default () => {
         <Col xs={12} className="mb-4 d-none d-sm-block">
 
           <SalesValueWidget
-            title="New users this week"
+            title="Participants"
             value={data}
           />
 
         </Col>
+
         <Col xs={12} className="mb-4 d-sm-none">
           <SalesValueWidgetPhone
             title="Sales Value"
@@ -124,8 +166,9 @@ export default () => {
             percentage={10.57}
           />
         </Col>
+        
         <Col xs={12} sm={6} xl={6} className="mb-4">
-          <CircleChartWidget title="Traffic Share" data={trafficShares} />
+          <CircleChartWidget title="Origin country" data={country(data)} />
         </Col>
 
         <Col xs={12} sm={6} xl={6} className="mb-4">
