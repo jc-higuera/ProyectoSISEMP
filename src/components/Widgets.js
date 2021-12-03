@@ -309,20 +309,19 @@ export const SalesValueWidget = (props) => {
   const percentageColor = percentage < 0 ? "text-danger" : "text-success";
 
   return (
-    <Card className="bg-secondary-alt shadow-sm">
+    <Card className="bg-primary-alt shadow-sm">
       <Card.Header className="d-flex flex-row align-items-center flex-0">
         <div className="d-block">
           <h5 className="fw-normal mb-2">
             {title}
           </h5>
-          <h3>{value}</h3>
+          <h3>{value.length}</h3>
           <small className="fw-bold mt-2">
-            <span className="me-2">Últimos 4 hacks</span>
+            <span className="me-2">Semana: 29/11/2021 - 05/12/2021</span>
           </small>
         </div>
         <div className="d-flex ms-auto">
-          <Button variant="secondary" size="sm" className="me-2">Trains</Button>
-          <Button variant="primary" size="sm" className="me-3">Climate Change</Button>
+            <a href='https://app.veertly.com/v/fridayhack/live/backdoor/1kw3hxjht'><Button variant="danger" size="sm" className="me-2">Weekly Event</Button></a>
         </div>
       </Card.Header>
       <Card.Body className="p-2">
@@ -338,7 +337,7 @@ export const SalesValueWidgetPhone = (props) => {
   const percentageColor = percentage < 0 ? "text-danger" : "text-success";
 
   return (
-    <Card className="bg-secondary-alt shadow-sm">
+    <Card className="bg-primary-alt shadow-sm">
       <Card.Header className="d-md-flex flex-row align-items-center flex-0">
         <div className="d-block mb-3 mb-md-0">
           <h5 className="fw-normal mb-2">

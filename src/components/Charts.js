@@ -3,23 +3,28 @@ import React from "react";
 import Chartist from "react-chartist";
 import ChartistTooltip from 'chartist-plugin-tooltips-updated';
 
+
+
+
 export const SalesValueChart = () => {
+
   const data = {
-    labels: ['Climate', 'Rails', 'Medecine', 'Machine Learning'],
+    labels: ['Champions', 'Climate Hackers', 'Climate Activists', 'Climatentrepreneur'],
     series: [[500, 200, 350, 200]]
   };
 
   const options = {
     low: 0,
     showArea: true,
-    fullWidth: true,
+    fullWidth: false,
     axisX: {
+      offset: 30,
       position: 'end',
-      showGrid: true
+      showGrid: false
     },
     axisY: {
       // On the y-axis start means left and end means right
-      showGrid: false,
+      showGrid: true,
       showLabel: false,
       labelInterpolationFnc: value => `$${value / 1}k`
     }
@@ -36,7 +41,7 @@ export const SalesValueChart = () => {
 
 export const SalesValueChartphone = () => {
   const data = {
-    labels: ['Climate', 'Rails', 'Medecine', 'Machine Learning'],
+    labels: ['Champions', 'Climate Hackers', 'Climate Activists', 'Climatentrepreneur'],
     series: [[500, 200, 350, 200]]
   };
 
