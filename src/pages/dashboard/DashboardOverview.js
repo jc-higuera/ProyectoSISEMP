@@ -31,18 +31,16 @@ export default () => {
     <>
       <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
 
-        <ButtonGroup>
-          <Button variant="outline-primary" size="sm">Share</Button>
-          <Button variant="outline-primary" size="sm">Export</Button>
-        </ButtonGroup>
+        <img src="https://i.ibb.co/gtHd61r/unnamed-3.png" border="0"  width="8%" height="auto" alt="Logo 42hacks"></img>
+        <a href='https://app.42hacks.com/#/memberlogin'><Button variant="outline-danger" size="sm">42Hacks Login</Button></a>
+        <a href='https://www.42hacks.com/fridays'><Button variant="outline-info" size="sm">Friday Invites</Button></a>
       </div>
 
       <Row className="justify-content-md-center">
         <Col xs={12} className="mb-4 d-none d-sm-block">
           <SalesValueWidget
-            title="Leads"
-            value="5.000"
-            percentage={10.57}
+            title="New users this week"
+            value={data}
           />
         </Col>
         <Col xs={12} className="mb-4 d-sm-none">
