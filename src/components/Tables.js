@@ -40,6 +40,13 @@ export const PageVisitsTable = ({ leads }) => {
     'Climate hacker': 'Climate hacker',
     'Climate entrepreneur': 'Climate entrepreneur'
   };
+  const selectHacks = {
+    'Prepare2Shift': 'Prepare2Shift',
+    'Fill the GAP': 'Fill the GAP',
+    'Ramp-up': 'Ramp-up',
+    'Ideators': 'Ideators',
+    'Make it better!': 'Make it better!'
+  };
 
   const columns = [
     { dataField: "name", text: "Name", filter: textFilter() },
@@ -50,6 +57,8 @@ export const PageVisitsTable = ({ leads }) => {
         options: selectOptions
       })
     },
+    { dataField: "hackname", text: "Hack Name",filter: selectFilter({
+        options: selectHacks })},
   ];
 
   const rowEvents = {

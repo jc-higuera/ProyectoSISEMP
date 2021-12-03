@@ -5,12 +5,11 @@ import { faStore, faMask, faUserAlt, faChessKing, faAngleDown, faAngleUp, faChar
 import { faAngular, faBootstrap, faReact, faVuejs } from "@fortawesome/free-brands-svg-icons";
 import { Col, Row, Card, Image, Button, ListGroup, ProgressBar } from '@themesberg/react-bootstrap';
 import { CircleChart, BarChart, SalesValueChart, SalesValueChartphone } from "./Charts";
-
 import Profile1 from "../assets/img/team/profile-picture-1.jpg";
 import ProfileCover from "../assets/img/profile-cover.jpg";
 import calculate_leads_category from "../scripts/calculate_category.js"
 import teamMembers from "../data/teamMembers";
-
+import { Dropdown } from 'react-bootstrap';
 
 export const ProfileCardWidget = () => {
   return (
@@ -116,7 +115,7 @@ export const CircleChartWidget = (props) => {
 
             {data.map(d => (
               <h6 key={`circle-element-${d.id}`} className="fw-normal text-gray">
-                <FontAwesomeIcon icon={d.icon} className={`icon icon-xs text-${d.color} w-20 me-1`} />
+                {/* <FontAwesomeIcon icon={d.icon} className={`icon icon-xs text-${d.color} w-20 me-1`} /> */}
                 {` ${d.label} `}{`${d.value}%`}
               </h6>
             ))}
@@ -323,6 +322,9 @@ export const SalesValueWidget = (props) => {
         </div>
         <div className="d-flex ms-auto">
             <a href='https://app.veertly.com/v/fridayhack/live/backdoor/1kw3hxjht'><Button variant="danger" size="sm" className="me-2">Weekly Event</Button></a>
+        </div>
+        <div className="d-flex">
+           
         </div>
       </Card.Header>
       <Card.Body className="p-2">
