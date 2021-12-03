@@ -13,7 +13,7 @@ import { trafficShares, totalOrders } from "../../data/charts";
 const URL = "https://gist.githubusercontent.com/jecanizarez/d02d54e96571c6e2f24aa49ce399cfdf/raw/16ad8b5e8ef94feb969f7c41ff81a8c9507fb7c3/Data_42Hacks.json"
 
 export default () => {
-  const [data, setData] = useState({ hits: [] });
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     getData();
@@ -53,18 +53,16 @@ export default () => {
     <>
       <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
 
-        <ButtonGroup>
-          <Button variant="outline-primary" size="sm">Share</Button>
-          <Button variant="outline-primary" size="sm">Export</Button>
-        </ButtonGroup>
+        <img src="https://i.ibb.co/gtHd61r/unnamed-3.png" border="0"  width="8%" height="auto" alt="Logo 42hacks"></img>
+        <a href='https://app.42hacks.com/#/memberlogin'><Button variant="outline-danger" size="sm">42Hacks Login</Button></a>
+        <a href='https://www.42hacks.com/fridays'><Button variant="outline-info" size="sm">Friday Invites</Button></a>
       </div>
 
       <Row className="justify-content-md-center">
         <Col xs={12} className="mb-4 d-none d-sm-block">
           <SalesValueWidget
-            title="Leads"
-            value="5.000"
-            percentage={10.57}
+            title="New users this week"
+            value={data}
           />
         </Col>
         <Col xs={12} className="mb-4 d-sm-none">
@@ -93,7 +91,7 @@ export default () => {
             <Col xs={12} xl={8} className="mb-4">
               <Row>
                 <Col xs={12} className="mb-4">
-                  <PageVisitsTable />
+                  <PageVisitsTable leads={data}/>
                 </Col>
                 <Col xs={12} lg={6} className="mb-4">
                 </Col>
@@ -114,7 +112,8 @@ export default () => {
                 </Col>
 
                 <Col xs={12} className="px-0">
-                  <AcquisitionWidget />
+                  <AcquisitionWidget
+                  leads={data} />
                 </Col>
               </Row>
             </Col>
