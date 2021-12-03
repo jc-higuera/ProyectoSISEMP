@@ -3,16 +3,20 @@ import React from "react";
 import Chartist from "react-chartist";
 import ChartistTooltip from 'chartist-plugin-tooltips-updated';
 
+
+
+
 export const SalesValueChart = () => {
+
   const data = {
-    labels: ['Climate', 'Rails', 'Medecine', 'Machine Learning'],
+    labels: ['Champions', 'Climate Hackers', 'Climate Activists', 'Climatentrepreneur'],
     series: [[500, 200, 350, 200]]
   };
 
   const options = {
     low: 0,
     showArea: true,
-    fullWidth: true,
+    fullWidth: false,
     axisX: {
       position: 'end',
       showGrid: true
@@ -36,7 +40,7 @@ export const SalesValueChart = () => {
 
 export const SalesValueChartphone = () => {
   const data = {
-    labels: ['Climate', 'Rails', 'Medecine', 'Machine Learning'],
+    labels: ['Champions', 'Climate Hackers', 'Climate Activists', 'Climatentrepreneur'],
     series: [[500, 200, 350, 200]]
   };
 
