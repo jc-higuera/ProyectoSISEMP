@@ -15,8 +15,9 @@ export const SalesValueChart = () => {
 
   const options = {
     low: 0,
+    barWidth: 20,
     showArea: true,
-    fullWidth: false,
+    fullWidth: true,
     axisX: {
       offset: 30,
       position: 'end',
@@ -25,8 +26,8 @@ export const SalesValueChart = () => {
     axisY: {
       // On the y-axis start means left and end means right
       showGrid: true,
-      showLabel: false,
-      labelInterpolationFnc: value => `$${value / 1}k`
+      showLabel: true,
+      labelInterpolationFnc: value => `${value}`
     }
   };
 
@@ -35,7 +36,7 @@ export const SalesValueChart = () => {
   ]
 
   return (
-    <Chartist data={data} options={{...options, plugins}} type="Line" className="ct-series-g ct-double-octave" />
+    <Chartist data={data} options={{...options, plugins}} type="Bar" className="ct-bar" />
   );
 };
 
