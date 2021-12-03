@@ -115,7 +115,7 @@ export const CircleChartWidget = (props) => {
 
             {data.map(d => (
               <h6 key={`circle-element-${d.id}`} className="fw-normal text-gray">
-                <FontAwesomeIcon icon={d.icon} className={`icon icon-xs text-${d.color} w-20 me-1`} />
+                {/* <FontAwesomeIcon icon={d.icon} className={`icon icon-xs text-${d.color} w-20 me-1`} /> */}
                 {` ${d.label} `}{`${d.value}%`}
               </h6>
             ))}
